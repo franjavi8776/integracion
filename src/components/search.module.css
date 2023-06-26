@@ -1,0 +1,30 @@
+.divSearch {
+  display: flex;
+  justify-content: end;
+  margin-right: 50px;
+  padding-top: 50px;
+}
+.div {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0px;
+  background-color: rgb(172, 165, 165, 0.6);
+}
+.inputSearch {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+.buttonSearch {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: yellow;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .divSearch {
+    justify-content: center;
+  }
+}
