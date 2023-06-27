@@ -1,8 +1,9 @@
 .divSearch {
   display: flex;
   justify-content: end;
+
   margin-right: 50px;
-  padding-top: 50px;
+  padding: 25px 0px;
 }
 .div {
   width: 400px;

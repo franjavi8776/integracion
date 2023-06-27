@@ -3,6 +3,10 @@
   background-color: rgba(179, 169, 169, 0.6);
   border-radius: 10px;
   overflow: hidden;
+  transition: all ease-in-out 0.3s;
+}
+.divCard:hover {
+  transform: translate(10px, 30px);
 }
 
 .buttonCard {
