@@ -13,6 +13,7 @@ const Detail = () => {
       ({ data }) => {
         if (data.name) {
           setCharacter(data);
+          console.log(data);
         } else {
           window.alert("No hay personajes con ese ID");
         }
@@ -23,15 +24,25 @@ const Detail = () => {
 
   return (
     <div className={style.divDetail}>
-      <div>
-        <h1>Nombre | {character.name}</h1>
-        <h2>Status | {character.status} </h2>
-        <h2>Especie | {character.specie}</h2>
-        <h2>Sexo | {character.gender}</h2>
-        <h2>Origen | {character.name && character.origin.name}</h2>
+      <div className={style.divContent}>
+        <h2>
+          <b>Nombre</b> | {character.name && character.name}
+        </h2>
+        <h2>
+          <b>Status </b>| {character.status && character.status}
+        </h2>
+        <h2>
+          <b>Especie</b> | {character.species && character.species}
+        </h2>
+        <h2>
+          <b>Sexo</b> | {character.gender && character.gender}
+        </h2>
+        <h2>
+          <b>Origen </b>| {character.origin?.name}
+        </h2>
       </div>
-      <div>
-        <img src={character.image} alt={character.name} />
+      <div className={style.divImage}>
+        <img src={character.image && character.image} alt={character.name} />
       </div>
     </div>
   );

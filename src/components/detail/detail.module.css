@@ -1,5 +1,45 @@
 .divDetail {
   width: 100%;
-  height: 100vh;
+  height: 88vh;
   background-color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.divContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("../image/rick.jpg");
+  color: wheat;
+  padding-left: 15rem;
+}
+.divContent b {
+  color: yellow;
+}
+
+.divImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../image/rick.jpg");
+  padding-right: 15rem;
+}
+.divImage img {
+  width: 60vh;
+  height: 60vh;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .divContent {
+    padding: 0;
+  }
+  .divImage img {
+    width: 25vh;
+    height: 25vh;
+  }
+  .divImage {
+    padding: 0;
+  }
 }

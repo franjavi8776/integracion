@@ -1,6 +1,14 @@
 .divCard {
+  width: 300px;
+  height: 390px;
   position: relative;
-  background-color: rgba(179, 169, 169, 0.6);
+  background: linear-gradient(
+    to right,
+    rgb(134, 207, 236, 0.75),
+    rgb(255, 255, 0, 0.75),
+    rgb(255, 193, 0, 0.75),
+    rgb(255, 0, 0, 0.75)
+  );
   border-radius: 10px;
   overflow: hidden;
   transition: all ease-in-out 0.3s;
@@ -15,7 +23,7 @@
   right: 2px;
   width: 25px;
   height: 25px;
-  background-color: red;
+  background-color: rgb(255, 183, 0);
   border: thin solid black;
   border-radius: 40%;
   cursor: pointer;
@@ -34,7 +42,7 @@
   left: 20px;
   padding: 5px;
   border-radius: 3px;
-  background-color: yellow;
+  background-color: rgb(255, 183, 0);
 }
 .div {
   display: flex;
