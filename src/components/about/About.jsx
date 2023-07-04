@@ -1,26 +1,27 @@
 import React from "react";
 import style from "./about.module.css";
+import image from "../image/me2.jpg";
 
 const About = () => {
   return (
     <div className={style.divAbout}>
-      <div className={style.contentAbout}>
-        <h2>Nombre: Francisco Villarroel</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus sequi
-          deserunt delectus esse nulla magni autem inventore, assumenda libero.
-          Eaque alias in dolorem at obcaecati numquam nostrum nihil itaque amet?
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-          laborum aperiam in, quaerat fuga eaque, ipsum quae officiis, eos esse
-          recusandae incidunt beatae doloremque consequatur aliquid omnis unde a
-          quis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quo
-          odit doloribus, explicabo, nulla consectetur sit quaerat asperiores,
-          dolore rerum id temporibus ab laudantium. Magni sint rerum corporis
-          vel aspernatur.
-        </p>
-      </div>
-      <div className={style.divImg}>
-        <img className={style.imgAbout} />
+      <div className={style.container}>
+        <div className={style.subcontainer}>
+          <div className={style.card}>
+            <div className={style.back}>
+              <h2>Nombre: Francisco Villarroel</h2>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+                hic itaque iure unde voluptates natus porro, molestiae corporis
+                deserunt adipisci nihil saepe numquam, enim sunt doloribus
+                debitis dolorum et quo.
+              </p>
+            </div>
+            <div className={style.front}>
+              <img src={image} alt="Image" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

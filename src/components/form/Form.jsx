@@ -7,8 +7,9 @@ const Form = ({ login }) => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setUserData({ ...userData, [e.target.name]: e.target.value });
-    setErrors(validation({ ...userData, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+    setErrors(validation({ ...userData, [name]: value }));
   };
 
   const handleSubmit = (e) => {

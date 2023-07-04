@@ -1,45 +1,86 @@
 .divDetail {
   width: 100%;
-  height: 88vh;
-  background-color: white;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-.divContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background-image: url("../image/rick.jpg");
-  color: wheat;
-  padding-left: 15rem;
-}
-.divContent b {
-  color: yellow;
-}
-
-.divImage {
+  height: 80vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-image: url("../image/rick.jpg");
-  padding-right: 15rem;
-}
-.divImage img {
-  width: 60vh;
-  height: 60vh;
-  border-radius: 50%;
+  margin-top: 50px;
 }
 
-@media screen and (max-width: 768px) {
-  .divContent {
-    padding: 0;
-  }
-  .divImage img {
-    width: 25vh;
-    height: 25vh;
-  }
-  .divImage {
-    padding: 0;
-  }
+.card {
+  width: 480px;
+  height: 480px;
+  perspective: 1000px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  background: linear-gradient(
+    to bottom,
+    rgb(134, 207, 236, 0.85),
+    rgb(255, 255, 0, 0.85),
+    rgb(255, 183, 0, 0.85),
+    rgb(255, 0, 0, 0.85)
+  );
+  text-align: center;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+}
+.back b {
+  color: red;
+}
+
+.front {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+}
+
+.front img {
+  width: 100%;
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+}
+
+.card:hover {
+  transform: rotateY(180deg);
 }

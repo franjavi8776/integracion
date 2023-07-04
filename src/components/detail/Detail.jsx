@@ -24,25 +24,31 @@ const Detail = () => {
 
   return (
     <div className={style.divDetail}>
-      <div className={style.divContent}>
-        <h2>
-          <b>Nombre</b> | {character.name && character.name}
-        </h2>
-        <h2>
-          <b>Status </b>| {character.status && character.status}
-        </h2>
-        <h2>
-          <b>Especie</b> | {character.species && character.species}
-        </h2>
-        <h2>
-          <b>Sexo</b> | {character.gender && character.gender}
-        </h2>
-        <h2>
-          <b>Origen </b>| {character.origin?.name}
-        </h2>
-      </div>
-      <div className={style.divImage}>
-        <img src={character.image && character.image} alt={character.name} />
+      <div className={style.card}>
+        <div className={style.back}>
+          <h2
+            style={{
+              fontSize: "45px",
+            }}
+          >
+            <b>{character.name && character.name}</b>
+          </h2>
+          <h3>
+            <b>Status </b>| {character.status && character.status}
+          </h3>
+          <h3>
+            <b>Especie</b> | {character.species && character.species}
+          </h3>
+          <h3>
+            <b>Sexo</b> | {character.gender && character.gender}
+          </h3>
+          <h3>
+            <b>Origen </b>| {character.origin?.name}
+          </h3>
+        </div>
+        <div className={style.front}>
+          <img src={character.image} alt={character.name} />
+        </div>
       </div>
     </div>
   );

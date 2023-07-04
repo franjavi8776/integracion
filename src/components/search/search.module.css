@@ -16,6 +16,7 @@
 .inputSearch {
   width: 10rem;
   height: 2rem;
+  padding-left: 10px;
   border: none;
   border-radius: 5px;
 }
