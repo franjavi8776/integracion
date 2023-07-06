@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import style from "./search.module.css";
 
-export default function SearchBar({ onSearch }) {
+export default function SearchBar({ onSearch, logout }) {
   const [id, setId] = useState("");
   const inputRef = useRef(null);
 
@@ -36,6 +36,11 @@ export default function SearchBar({ onSearch }) {
         </button>
         <button className={style.buttonSearch} onClick={handleRandom}>
           Agregar random
+        </button>
+      </div>
+      <div>
+        <button className={style.logout} onClick={logout}>
+          Logout
         </button>
       </div>
     </div>

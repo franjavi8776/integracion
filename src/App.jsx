@@ -8,10 +8,12 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Detail from "./components/detail/Detail";
 import Error from "./components/error/Error";
 import Form from "./components/form/Form";
+import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     !access && navigate("/");
@@ -24,12 +26,18 @@ function App() {
 
   const login = (userData) => {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
+      setLoggedIn(true);
       setAccess(true);
       navigate("/home");
     } else {
       alert("Email o password incorrecto");
     }
   };
+
+  const logout = () => { 
+    setLoggedIn(false);
+    navigate("/");
+  }
 
   const onSearch = (id) => {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
@@ -60,9 +68,10 @@ function App() {
 
   return (
     <div className="App">
-      {pathname !== "/" && <Nav onSearch={onSearch} />}
+      {pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
 
       <Routes>
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/" element={<Form login={login} />} />
         <Route path="/about" element={<About />} />
         <Route

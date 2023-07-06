@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  gap: 50px;
   align-items: center;
   padding: 25px 0px;
 }
@@ -29,4 +30,17 @@
   border-radius: 5px;
   background-color: rgb(255, 183, 0);
   cursor: pointer;
+}
+.logout {
+  padding: 5px;
+  border: 0;
+  border-radius: 3px;
+  font-weight: bold;
+  background-color: rgb(114, 196, 228);
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.logout:active {
+  transform: scale(0.98) translate(1px, 1px);
 }
