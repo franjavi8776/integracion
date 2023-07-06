@@ -35,7 +35,7 @@ export default function SearchBar({ onSearch, logout }) {
           Agregar
         </button>
         <button className={style.buttonSearch} onClick={handleRandom}>
-          Agregar random
+          Random
         </button>
       </div>
       <div>

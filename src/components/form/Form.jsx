@@ -19,7 +19,7 @@ const Form = ({ login }) => {
 
   return (
     <div className={style.divForm}>
-      <form className={style.form}>
+      <form onSubmit={handleSubmit} className={style.form}>
         <div className={style.img}></div>
         <div className={style.input}>
           <label htmlFor="email">Email</label>
@@ -47,7 +47,7 @@ const Form = ({ login }) => {
           <span style={{ color: "red" }}>{errors.password}</span>
         ) : null}
 
-        <input type="submit" onClick={handleSubmit} />
+        <input type="submit" />
       </form>
     </div>
   );
