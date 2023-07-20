@@ -24,9 +24,7 @@ function Card({ id, name, status, species, gender, origin, image, onClose }) {
       dispatch(removeFav(id));
     } else {
       setIsFav(true);
-      dispatch(
-        addFav({ id, name, status, species, gender, origin, image, onClose })
-      );
+      dispatch(addFav({ id, name, status, species, gender, origin, image }));
     }
   };
 

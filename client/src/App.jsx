@@ -19,43 +19,51 @@ function App() {
     !access && navigate("/");
   }, [access]);
 
-  const EMAIL = "fran@gmail.com";
-  const PASSWORD = "pass123";
-
   const navigate = useNavigate();
 
-  const login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setLoggedIn(true);
-      setAccess(true);
-      navigate("/home");
-    } else {
-      alert("Email o password incorrecto");
+  async function login(userData) {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      const response = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+      const data = response.data;
+      const { access } = data;
+      setAccess(access);
+      setLoggedIn(!loggedIn);
+      access && navigate("/home");
+    } catch (error) {
+      alert(error.message);
     }
-  };
-
-  const logout = () => { 
-    setLoggedIn(false);
-    navigate("/");
   }
 
-  const onSearch = (id) => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          const isCharacterExist = characters.find(
-            (character) => character.id === data.id
-          );
-          if (isCharacterExist) {
-            window.alert("¡El personaje ya está en pantalla!");
-          } else {
-            setCharacters([...characters, data]);
-          }
+  const logout = () => {
+    setLoggedIn(!loggedIn);
+    navigate("/");
+  };
+
+  const onSearch = async (id) => {
+    try {
+      const response = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      const data = response.data;
+      if (data.name) {
+        const isCharacterExist = characters.find(
+          (character) => character.id === data.id
+        );
+        if (isCharacterExist) {
+          window.alert("¡El personaje ya está en pantalla!");
         } else {
-          window.alert("!No hay personaje con este ID!");
+          setCharacters([...characters, data]);
         }
+      } else {
+        alert("!No hay personaje con este ID!");
       }
-    );
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   const onClose = (id) => {

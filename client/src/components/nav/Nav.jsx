@@ -1,9 +1,15 @@
-import React from "react";
+import { useState } from "react";
 import SearchBar from "../search/SearchBar";
 import style from "./nav.module.css";
 import { Link } from "react-router-dom";
 
 const nav = ({ onSearch, logout }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className={style.divNav}>
       <div className={style.btnNav}>
