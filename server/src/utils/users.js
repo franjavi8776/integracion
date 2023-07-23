@@ -1,1 +1,3 @@
-module.exports = [{ email: "fran@gmail.com", password: "pass123" }];
+const users = [{ email: "fran@gmail.com", password: "pass123" }];
+
+export default users;

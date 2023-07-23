@@ -1,7 +1,7 @@
-const { Router } = require("express");
-const getCharById = require("../controllers/getCharById.js");
-const { postFav, deleteFav } = require("../controllers/handleFavorites.js");
-const login = require("../controllers/login.js");
+import { Router } from "express";
+import getCharById from "../controllers/getCharById.js";
+import { postFav, deleteFav } from "../controllers/handleFavorites.js";
+import login from "../controllers/login.js";
 
 const router = Router();
 
@@ -10,4 +10,4 @@ router.get("/login", login);
 router.post("/fav", postFav);
 router.delete("/fav/:id", deleteFav);
 
-module.exports = router;
+export default router;

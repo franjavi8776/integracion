@@ -1,9 +1,7 @@
-// require("dotenv").config();
-// const { PORT } = process.env;
-const express = require("express");
-const morgan = require("morgan");
-const cors = require("cors");
-const router = require("./routes/index.js");
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
+import router from "./routes/index.js";
 
 const server = express();
 
@@ -15,4 +13,4 @@ server.use(cors());
 
 server.use("/rickandmorty", router);
 
-module.exports = server;
+export default server;
