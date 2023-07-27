@@ -1,15 +1,21 @@
-import users from "../utils/users.js";
+import { User } from "../DB_connection.js";
 
-const login = (req, res) => {
-  const { email, password } = req.query;
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.query;
 
-  const foundUser = users.find(
-    (user) => user.email === email && user.password === password
-  );
+    if (!email && !password) res.status(400).send("Faltan Datos");
 
-  foundUser
-    ? res.status(200).json({ access: true })
-    : res.status(200).json({ access: false });
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) res.status(404).send("Usuario no encontrado");
+
+    return user.password === password
+      ? res.status(200).json({ access: true })
+      : res.status(403).send("Contraseña incorrecta");
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 export default login;
