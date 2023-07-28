@@ -8,8 +8,8 @@ export const ORDER = "ORDER";
 export const addFav = (character) => async (dispatch) => {
   try {
     const endpoint = "http://localhost:3001/rickandmorty/fav";
-    const response = axios.post(endpoint, character);
-    const data = (await response).data;
+    const response = await axios.post(endpoint, character);
+    const data = response.data;
     return dispatch({
       type: ADD_FAV,
       payload: data,
