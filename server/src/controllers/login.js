@@ -4,7 +4,7 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.query;
 
-    if (!email && !password) res.status(400).send("Faltan Datos");
+    if (!email || !password) res.status(400).send("Faltan Datos");
 
     const user = await User.findOne({ where: { email } });
 

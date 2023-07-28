@@ -22,7 +22,7 @@ export default (sequelize) => {
         allowNull: false,
       },
       gender: {
-        type: DataTypes.ENUM("Female", "Male", "Gendeless", "unknown"),
+        type: DataTypes.ENUM("Female", "Male", "Genderless", "unknown"),
       },
       origin: {
         type: DataTypes.STRING,
